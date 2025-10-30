@@ -1,8 +1,7 @@
 [build]
-  command = "npm run build && npx next export"
-  publish = "out"
+  command = "npx prisma generate && npm run build"
+  publish = ".next"
 
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+[functions]
+  node_bundler = "esbuild"
+  external_node_modules = ["@prisma/client", "prisma"]
